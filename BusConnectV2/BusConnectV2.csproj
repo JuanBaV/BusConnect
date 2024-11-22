@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4070FE03-2BBA-400E-8367-3A8B9E214B40}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BusConnectV2</RootNamespace>
+    <AssemblyName>BusConnectV2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Core.2.1.7\lib\net472\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinForms.2.1.7\lib\net472\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=2.1.7.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinPresentation.2.1.7\lib\net472\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Device" />
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DSInformeAvisos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSInformeAvisos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSInformeUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSInformeUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="editarUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editarUsers.Designer.cs">
+      <DependentUpon>editarUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editEmpresas.Designer.cs">
+      <DependentUpon>editEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginRegistro.Designer.cs">
+      <DependentUpon>frmLoginRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuAdmin.Designer.cs">
+      <DependentUpon>frmMenuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuAdminInformes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuAdminInformes.Designer.cs">
+      <DependentUpon>frmMenuAdminInformes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuAdminRegEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuAdminRegEmp.Designer.cs">
+      <DependentUpon>frmMenuAdminRegEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuAdminRegUsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuAdminRegUsu.Designer.cs">
+      <DependentUpon>frmMenuAdminRegUsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuEmpresa.Designer.cs">
+      <DependentUpon>frmMenuEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuEmpresaAvisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuEmpresaAvisos.Designer.cs">
+      <DependentUpon>frmMenuEmpresaAvisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuEmpresaRegLin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuEmpresaRegLin.Designer.cs">
+      <DependentUpon>frmMenuEmpresaRegLin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuEmpresaRegRec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuEmpresaRegRec.Designer.cs">
+      <DependentUpon>frmMenuEmpresaRegRec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuSoporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuSoporte.Designer.cs">
+      <DependentUpon>frmMenuSoporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuSoporteConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuSoporteConsultas.Designer.cs">
+      <DependentUpon>frmMenuSoporteConsultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuUsuario.Designer.cs">
+      <DependentUpon>frmMenuUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuUsuarioAvisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuUsuarioAvisos.Designer.cs">
+      <DependentUpon>frmMenuUsuarioAvisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuUsuarioConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuUsuarioConsultas.Designer.cs">
+      <DependentUpon>frmMenuUsuarioConsultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuUsuarioMapa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuUsuarioMapa.Designer.cs">
+      <DependentUpon>frmMenuUsuarioMapa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuUsuarioSuscripciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuUsuarioSuscripciones.Designer.cs">
+      <DependentUpon>frmMenuUsuarioSuscripciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Perfil.Designer.cs">
+      <DependentUpon>Perfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RJToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editarUsers.resx">
+      <DependentUpon>editarUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editEmpresas.resx">
+      <DependentUpon>editEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginRegistro.resx">
+      <DependentUpon>frmLoginRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuAdmin.resx">
+      <DependentUpon>frmMenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuAdminInformes.resx">
+      <DependentUpon>frmMenuAdminInformes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuAdminRegEmp.resx">
+      <DependentUpon>frmMenuAdminRegEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuAdminRegUsu.resx">
+      <DependentUpon>frmMenuAdminRegUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuEmpresa.resx">
+      <DependentUpon>frmMenuEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuEmpresaAvisos.resx">
+      <DependentUpon>frmMenuEmpresaAvisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuEmpresaRegLin.resx">
+      <DependentUpon>frmMenuEmpresaRegLin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuEmpresaRegRec.resx">
+      <DependentUpon>frmMenuEmpresaRegRec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuSoporte.resx">
+      <DependentUpon>frmMenuSoporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuSoporteConsultas.resx">
+      <DependentUpon>frmMenuSoporteConsultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuUsuario.resx">
+      <DependentUpon>frmMenuUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuUsuarioAvisos.resx">
+      <DependentUpon>frmMenuUsuarioAvisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuUsuarioConsultas.resx">
+      <DependentUpon>frmMenuUsuarioConsultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuUsuarioMapa.resx">
+      <DependentUpon>frmMenuUsuarioMapa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuUsuarioSuscripciones.resx">
+      <DependentUpon>frmMenuUsuarioSuscripciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perfil.resx">
+      <DependentUpon>Perfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <None Include="DSInformeAvisos.xsc">
+      <DependentUpon>DSInformeAvisos.xsd</DependentUpon>
+    </None>
+    <None Include="DSInformeAvisos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSInformeAvisos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSInformeAvisos.xss">
+      <DependentUpon>DSInformeAvisos.xsd</DependentUpon>
+    </None>
+    <None Include="DSInformeUsuarios.xsc">
+      <DependentUpon>DSInformeUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="DSInformeUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSInformeUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSInformeUsuarios.xss">
+      <DependentUpon>DSInformeUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{81d008ac-a4de-4652-a88b-5a43386b7fb7}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controles\Controles.csproj">
+      <Project>{88eda200-8584-4a9d-8697-4a6eaaa44397}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{8e5cc1dd-b1de-4d4e-b94d-6df0a31b7a72}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-computer-icons-editing-others.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-delete-key-logo-button-text-rectangle-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>
